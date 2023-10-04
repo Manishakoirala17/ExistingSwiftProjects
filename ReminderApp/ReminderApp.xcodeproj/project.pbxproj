@@ -21,6 +21,7 @@
 		137F71792ACAA23300DCF47C /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F71782ACAA23300DCF47C /* AddListView.swift */; };
 		137F717B2ACBE18D00DCF47C /* EditListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F717A2ACBE18D00DCF47C /* EditListView.swift */; };
 		137F717D2ACBE41400DCF47C /* NewReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F717C2ACBE41400DCF47C /* NewReminderView.swift */; };
+		138D0D562ACD14B800A911D0 /* DetailsFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D0D552ACD14B800A911D0 /* DetailsFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		137F71782ACAA23300DCF47C /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		137F717A2ACBE18D00DCF47C /* EditListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListView.swift; sourceTree = "<group>"; };
 		137F717C2ACBE41400DCF47C /* NewReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderView.swift; sourceTree = "<group>"; };
+		138D0D552ACD14B800A911D0 /* DetailsFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				137F71782ACAA23300DCF47C /* AddListView.swift */,
 				137F717A2ACBE18D00DCF47C /* EditListView.swift */,
 				137F717C2ACBE41400DCF47C /* NewReminderView.swift */,
+				138D0D552ACD14B800A911D0 /* DetailsFieldView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				137F71772ACA9F9000DCF47C /* MyListViewModel.swift in Sources */,
 				137F71712ACA86EC00DCF47C /* SearchBar.swift in Sources */,
 				137F716A2AC8813000DCF47C /* MyListsView.swift in Sources */,
+				138D0D562ACD14B800A911D0 /* DetailsFieldView.swift in Sources */,
 				137F717D2ACBE41400DCF47C /* NewReminderView.swift in Sources */,
 				137F716F2AC8891500DCF47C /* CardDataModel.swift in Sources */,
 				137F71792ACAA23300DCF47C /* AddListView.swift in Sources */,
