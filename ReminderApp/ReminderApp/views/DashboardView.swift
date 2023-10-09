@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @State var cardItems:[CardDataModel] = CardViewModel().fetchCardsDetails()
+    @State var cardItems = CardViewModel()
     @State var addListPresented:Bool = false
     @State var search:String = ""
     @State var newReminderPresented:Bool = false
+    @State private var goToNewView: Bool = false
+
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
 
     var body: some View {
@@ -22,10 +24,11 @@ struct DashboardView: View {
                         .listRowBackground(Color.gray.opacity(0.0))
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                    if cardItems.count == 1{
-                        let item = cardItems[0]
+                    if cardItems.cards.count == 1{
+                        let item = cardItems.cards[0]
                         HStack{
                             CardView(count: item.count, title: item.title, imageName: item.imageName, imageColor: item.color)
+                                
                         }
                         .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                         .listRowBackground(Color.gray.opacity(0.0))
@@ -33,9 +36,11 @@ struct DashboardView: View {
                     }
                     else{
                         LazyVGrid(columns: columns) {
-                            ForEach(cardItems, id: \.self) { item in
+                            ForEach(cardItems.cards, id: \.self) { item in
                                 CardView(count: item.count, title: item.title, imageName: item.imageName, imageColor: item.color)
-
+                                    .onTapGesture {
+                                        goToNewView = true
+                                    }
                             }
                         }
                         .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
@@ -52,9 +57,11 @@ struct DashboardView: View {
                             .listRowSeparator(.hidden)
                             .padding(6)
                         MyListsView()
+                    
                 }
                 .listStyle(.insetGrouped)
                 Spacer()
+
                 HStack{
                     Button(action: {
                         newReminderPresented = true
@@ -88,8 +95,11 @@ struct DashboardView: View {
                 NewReminderView(isPresented:$newReminderPresented)
 
             })
+            .navigationDestination(isPresented:$goToNewView) {
+                ReminderList()
+            }
         }
-    
+
     }
 }
 

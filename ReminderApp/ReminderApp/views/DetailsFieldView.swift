@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct DetailsFieldView: View {
-    enum priority : String, CaseIterable { // 1
-           case none
-           case low
-           case medium
-           case high
-       }
+//    enum priority : String, CaseIterable { // 1
+//           case none
+//           case low
+//           case medium
+//           case high
+//       }
        
-    @State var selectedItem = priority.none// 2
+//    @State var selectedItem = priority.none// 2
+    
+    var priority:[String] = ["none","low","medium","high"]
     @State var date = Date.now
     @State var currentDate = Date.now
+    
+    @Binding var detailData:DetailsModel
     var body: some View {
         NavigationStack{
             List{
@@ -25,23 +29,28 @@ struct DetailsFieldView: View {
                     HStack{
                         Image(systemName: "calendar")
                         Text("Date")
-                        Toggle("", isOn: .constant(true))
+                        Toggle(" ", isOn: $detailData.isDate)
                     }
-                    DatePicker(
-                        "Start Date",
-                        selection: $date,
-                        displayedComponents: [.date]
-                    )
-                    .datePickerStyle(.graphical)
+                    if(detailData.isDate){
+                        DatePicker(
+                            "Start Date",
+                            selection: $detailData.date,
+                            displayedComponents: [.date]
+                        )
+                        .datePickerStyle(.graphical)
+                    }
+                   
 
                     HStack{
                         Image(systemName: "clock")
                         Text("Time")
-                        Toggle("", isOn: .constant(true))
+                        Toggle("", isOn: $detailData.isTime)
                     }
-                    DatePicker("", selection: $currentDate, displayedComponents: .hourAndMinute)
-                        .labelsHidden()
+                    if(detailData.isTime){
+                        DatePicker("Select time", selection: $detailData.time, displayedComponents: .hourAndMinute)
+                            .labelsHidden()
 
+                    }
 
                 }
                 Section{
@@ -52,9 +61,9 @@ struct DetailsFieldView: View {
                     }
                 }
                 Section{
-                    Picker("Priority", selection: $selectedItem) {
-                        ForEach(priority.allCases, id: \.self) { item in
-                            Text(item.rawValue.capitalized)
+                    Picker("Priority", selection: $detailData.priority) {
+                        ForEach(priority, id: \.self) { item in
+                            Text(item)
                         }
                     }
 
@@ -74,6 +83,6 @@ struct DetailsFieldView: View {
     }
 }
 
-#Preview {
-    DetailsFieldView()
-}
+//#Preview {
+//    DetailsFieldView(, detailData: <#Binding<DetailsModel>#>)
+//}

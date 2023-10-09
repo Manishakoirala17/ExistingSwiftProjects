@@ -10,6 +10,7 @@ import SwiftData
 
 struct ListFieldView: View {
     @Query var items:[MyListViewModel]
+    @Binding var listData: MyListViewModel
     
     var body: some View {
         List{
@@ -17,13 +18,19 @@ struct ListFieldView: View {
                 HStack{
                     Text(item.name)
                     Spacer()
-                    Image(systemName:"checkmark")
+                    if(item == listData){
+                        Image(systemName:"checkmark")
+                    }
+                }
+                .onTapGesture {
+                    print("list",item)
+                    listData = item
                 }
             }
         }
     }
 }
 
-#Preview {
-    ListFieldView()
-}
+//#Preview {
+//    ListFieldView()
+//}
