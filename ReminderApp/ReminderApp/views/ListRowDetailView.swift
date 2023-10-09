@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ListRowDetailView: View {
     @State var isDetailPresented:Bool = false
+    var color: Color = .orange
     var body: some View {
         VStack(alignment: .leading){
             Text("Reminders")
                 .font(.largeTitle)
                 .bold()
-                .foregroundColor(.orange)
+                .foregroundColor(color)
             List{
                 VStack(alignment:.leading){
                     HStack{
@@ -23,11 +24,11 @@ struct ListRowDetailView: View {
                             Image(systemName: "exclamationmark")
                             Image(systemName: "exclamationmark")
                         }
-                        .foregroundColor(.orange)
+                        .foregroundColor(color)
                         TextField("",text: .constant("Test Reminder 1"),axis: .vertical)
                         Spacer()
                             Image(systemName: "info.circle")
-                                .foregroundColor(.orange)
+                                .foregroundColor(color)
                                 .onTapGesture {
                                     isDetailPresented = true
                                 }
@@ -40,6 +41,14 @@ struct ListRowDetailView: View {
                 }
             }
             .listStyle(.plain)
+            Spacer()
+            HStack{
+                Image(systemName: "plus")
+                Text("New Reminder")
+                    .bold()
+            }
+            .foregroundColor(color)
+            .padding()
           
         }
       

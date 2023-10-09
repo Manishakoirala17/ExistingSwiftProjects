@@ -13,21 +13,21 @@ struct ListFieldView: View {
     @Binding var listData: MyListViewModel
     
     var body: some View {
-        List{
-            ForEach(items,id: \.self){ item in
-                HStack{
-                    Text(item.name)
-                    Spacer()
-                    if(item == listData){
-                        Image(systemName:"checkmark")
+            List{
+                ForEach(items,id: \.self){ item in
+                    HStack{
+                        Text(item.name)
+                        Spacer()
+                        if(item == listData){
+                            Image(systemName:"checkmark")
+                        }
+                    }
+                    .onTapGesture {
+                        print("list",item)
+                        listData = item
                     }
                 }
-                .onTapGesture {
-                    print("list",item)
-                    listData = item
-                }
             }
-        }
     }
 }
 
