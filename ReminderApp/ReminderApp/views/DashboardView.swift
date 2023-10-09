@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct DashboardView: View {
-    var cardItems:[CardDataModel] = CardDataModel.all()
+    @State var cardItems:[CardDataModel] = CardViewModel().fetchCardsDetails()
     @State var addListPresented:Bool = false
     @State var search:String = ""
     @State var newReminderPresented:Bool = false
+    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+
     var body: some View {
         NavigationStack{
             VStack(alignment:.leading,spacing:0){
@@ -20,28 +22,35 @@ struct DashboardView: View {
                         .listRowBackground(Color.gray.opacity(0.0))
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    if cardItems.count == 1{
+                        let item = cardItems[0]
+                        HStack{
+                            CardView(count: item.count, title: item.title, imageName: item.imageName, imageColor: item.color)
+                        }
+                        .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        .listRowBackground(Color.gray.opacity(0.0))
+                        .listRowSeparator(.hidden)
+                    }
+                    else{
+                        LazyVGrid(columns: columns) {
+                            ForEach(cardItems, id: \.self) { item in
+                                CardView(count: item.count, title: item.title, imageName: item.imageName, imageColor: item.color)
 
-                    HStack
-                    {
-                            CardView(count: cardItems[0].count, title: cardItems[0].title, imageName: cardItems[0].imageName, imageColor: cardItems[0].color)
-                            CardView(count: cardItems[1].count, title: cardItems[1].title, imageName: cardItems[1].imageName, imageColor: cardItems[1].color)
+                            }
+                        }
+                        .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        .listRowBackground(Color.gray.opacity(0.0))
+                        .listRowSeparator(.hidden)
                     }
-                    .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                    .listRowBackground(Color.gray.opacity(0.0))
-                    .listRowSeparator(.hidden)
-                    HStack{
-                        CardView(count: cardItems[2].count, title: cardItems[2].title, imageName: cardItems[2].imageName, imageColor: cardItems[2].color)
-                        CardView(count: cardItems[3].count, title: cardItems[3].title, imageName: cardItems[3].imageName, imageColor: cardItems[3].color)
-                    }
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.gray.opacity(0.0))
-                    .listRowSeparator(.hidden)
+                   
+                   
                         Text("My Lists")
                             .font(.title)
                             .bold()
-                            .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                            .listRowInsets(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
                             .listRowBackground(Color.gray.opacity(0.0))
                             .listRowSeparator(.hidden)
+                            .padding(6)
                         MyListsView()
                 }
                 .listStyle(.insetGrouped)
@@ -66,9 +75,9 @@ struct DashboardView: View {
             }
             .toolbar{
                 ToolbarItem{
-                    Button("Edit"){
-                        print("edit")
-                    }
+                    NavigationLink(destination: EditDashboardView(), label: {
+                        Text("Edit")
+                    })
                 }
             }
             .background(Color.gray.opacity(0.1))

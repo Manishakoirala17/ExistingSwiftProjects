@@ -17,8 +17,10 @@ struct MyListsView: View {
     
     var body: some View {
             ForEach(myLists,id: \.self){ list in
-                ListRow(list: list)
-                    .swipeActions{
+                NavigationLink(destination: ListRowDetailView()){
+                    ListRow(list: list)
+                }
+                .swipeActions{
                         Button(role: .destructive) {
                             context.delete(list)
                         } label: {
@@ -51,8 +53,6 @@ struct ListRow:View {
                     .frame(width:30,height: 30)
                     .foregroundColor(stringToColor(color: list.color))
             Text(list.name)
-            Spacer()
-            Image(systemName: "chevron.forward")
         }
     }
 }

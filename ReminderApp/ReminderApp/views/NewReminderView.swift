@@ -40,17 +40,18 @@ struct ReminderInputs:View {
 
             }
             Section{
-                HStack{
-                    Text("Details")
-                    Spacer()
-                    Image(systemName: "chevron.right")
+                NavigationLink(destination: DetailsFieldView()){
+                    HStack{
+                        Text("Details")
+                    }
                 }
+               
             }
             Section{
-                HStack{
-                    Text("List")
-                    Spacer()
-                    Image(systemName: "chevron.right")
+                NavigationLink(destination: ListFieldView()){
+                    HStack{
+                        Text("List")
+                    }
                 }
             }
         }
