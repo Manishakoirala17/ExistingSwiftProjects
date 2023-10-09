@@ -12,29 +12,45 @@ struct EditDashboardView: View {
     @Environment(\.presentationMode) var presentationMode
 
     @ObservedObject var cardItems = CardViewModel()
-     @Query var listItems:[MyListViewModel]
+    @Query var listItems:[MyListViewModel]
     @State var search = ""
+    @State var isAddListPresented:Bool = false
     var body: some View {
         NavigationView{
-            List{
-                SearchBar(search: $search)
-                    .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                    .listRowBackground(Color.gray.opacity(0.0))
-                    .listRowSeparator(.hidden)
-                
-                Section{
-                    ForEach(cardItems.cards,id: \.self) { item in
-                       CardRow(item: item)
+            VStack{
+                List{
+                    SearchBar(search: $search)
+                        .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        .listRowBackground(Color.gray.opacity(0.0))
+                        .listRowSeparator(.hidden)
+                    
+                    Section{
+                        ForEach(cardItems.cards,id: \.self) { item in
+                           CardRow(item: item)
+                        }
+                    }
+                    Section(header:Text("My Lists").bold().font(.largeTitle).foregroundColor(.black))
+                    {
+                        ForEach(listItems,id:\.self) { item in
+                           MyListRow(item: item)
+                        }
+                    }
+                   
+                }
+                Spacer()
+                HStack{
+                    Text("Add Group")
+                    Spacer()
+                    Button(action:{
+                        isAddListPresented = true
+                    }){
+                        Text("Add List")
                     }
                 }
-                Section(header:Text("My Lists").bold().font(.largeTitle).foregroundColor(.black))
-                {
-                    ForEach(listItems,id:\.self) { item in
-                       MyListRow(item: item)
-                    }
-                }
-               
+                .padding()
             }
+            .background(Color.gray.opacity(0.1))
+           
             .toolbar{
                 ToolbarItem{
                     Button("Done")
@@ -43,6 +59,9 @@ struct EditDashboardView: View {
                     }
                 }
             }
+            .sheet(isPresented: $isAddListPresented, content:{
+                AddListView(isPresented: $isAddListPresented)
+            })
         }
         .navigationBarBackButtonHidden(true)
         
