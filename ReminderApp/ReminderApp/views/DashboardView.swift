@@ -92,7 +92,7 @@ struct DashboardView: View {
                 AddListView(isPresented: $addListPresented)
             })
             .sheet(isPresented:$newReminderPresented,content:{
-                NewReminderView(isPresented:$newReminderPresented)
+                NewReminderView(reminderData: ReminderData.emptyModel, isPresented:$newReminderPresented)
 
             })
             .navigationDestination(isPresented:$goToNewView) {

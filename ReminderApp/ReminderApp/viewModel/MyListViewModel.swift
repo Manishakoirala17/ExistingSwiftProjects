@@ -12,7 +12,11 @@ import SwiftData
 class MyListViewModel{
     var name:String
     var color:String
-    init(name: String = "test",color:String = "red") {
+    
+    @Relationship(deleteRule: .cascade, inverse: \ReminderModelData.list)
+    var reminders:[ReminderModelData]?
+    
+    init(name: String,color:String) {
         self.name = name
         self.color = color
     }

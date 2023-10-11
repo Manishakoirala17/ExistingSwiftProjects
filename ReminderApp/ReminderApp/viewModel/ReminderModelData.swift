@@ -14,26 +14,25 @@ class ReminderModelData {
     var title:String
     var notes:String
     var details:Details
-//    var list:MyListViewModel
+    
+    var list:MyListViewModel?
     
     init(id: UUID, title: String, notes: String,details:Details) {
         self.id = id
         self.title = title
         self.notes = notes
         self.details = details
-//        self.list = list
     }
 }
 
 @Model
-
 class Details{
-    var date:Date
-    var time:Date
+    var date:String
+    var time:String
     var priority:String
     var repeatType:String
     
-    init(date: Date, time: Date, priority: String, repeatType: String) {
+    init(date: String, time: String, priority: String, repeatType: String) {
         self.date = date
         self.time = time
         self.priority = priority

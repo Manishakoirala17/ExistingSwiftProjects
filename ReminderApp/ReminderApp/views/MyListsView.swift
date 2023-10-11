@@ -17,7 +17,7 @@ struct MyListsView: View {
     
     var body: some View {
             ForEach(myLists,id: \.self){ list in
-                NavigationLink(destination: ListRowDetailView()){
+                NavigationLink(destination: ListRowDetailView(list:list)){
                     ListRow(list: list)
                 }
                 .swipeActions{

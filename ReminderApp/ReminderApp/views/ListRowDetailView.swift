@@ -6,52 +6,24 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ListRowDetailView: View {
     @State var isDetailPresented:Bool = false
     @State var rowCount:Int = 0
+    
+    var list:MyListViewModel
+
+    @Query var myReminders:[ReminderModelData]
+    
     var color: Color = .orange
     var body: some View {
-        VStack(alignment: .leading){
-            Text("Reminders")
-                .font(.largeTitle)
-                .bold()
-                .foregroundColor(color)
-            List{
-                ForEach(0...rowCount,id:\.self){ _ in
-                    reminderRow(isDetailPresented: $isDetailPresented, color: color)
-                        .swipeActions{
-                            Button(role: .destructive, action: {}){
-                                Text("Delete")
-                            }
-                            }
-                            .swipeActions{
-                                Button(action:{
-                                    
-                                }){
-                                    Text("Detail")
-                                }
-                            }
-                }
+        List{
+            Text("\(list.name)")
+            ForEach(myReminders){ reminder in
+                Text("\(reminder.title)")
             }
-            .listStyle(.plain)
-            
-            Spacer()
-            Button(action:{
-                rowCount = rowCount + 1
-            }){
-                HStack{
-                    Image(systemName: "plus")
-                    Text("New Reminder")
-                        .bold()
-                }
-                .foregroundColor(color)
-                .padding()
-            }
-           
-          
         }
-      
     }
 }
 struct reminderRow:View {
@@ -85,5 +57,46 @@ struct reminderRow:View {
     }
 }
 #Preview {
-    ListRowDetailView()
+    ListRowDetailView(list: MyListViewModel(name: "", color: ""))
 }
+
+
+//VStack(alignment: .leading){
+//    Text("Reminders")
+//        .font(.largeTitle)
+//        .bold()
+//        .foregroundColor(color)
+//    List{
+//        ForEach(0...rowCount,id:\.self){ _ in
+//            reminderRow(isDetailPresented: $isDetailPresented, color: color)
+//                .swipeActions{
+//                    Button(role: .destructive, action: {}){
+//                        Text("Delete")
+//                    }
+//                    }
+//                    .swipeActions{
+//                        Button(action:{
+//                            
+//                        }){
+//                            Text("Detail")
+//                        }
+//                    }
+//        }
+//    }
+//    .listStyle(.plain)
+//    
+//    Spacer()
+//    Button(action:{
+//        rowCount = rowCount + 1
+//    }){
+//        HStack{
+//            Image(systemName: "plus")
+//            Text("New Reminder")
+//                .bold()
+//        }
+//        .foregroundColor(color)
+//        .padding()
+//    }
+//   
+//  
+//}

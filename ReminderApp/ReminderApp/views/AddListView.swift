@@ -32,12 +32,11 @@ struct AddListView: View {
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.blue)
                             Spacer()
-                            Button(action:{
-                                listItem.name = ""
-                            }){
-                               Image(systemName: "multiply.circle.fill")
-                                    .foregroundColor(.gray)
-                            }
+                            Image(systemName: "multiply.circle.fill")
+                                 .foregroundColor(.gray)
+                                 .onTapGesture(perform: {
+                                     listItem.name = ""
+                                 })
                         }
                         .padding(10)
                         .background(.gray.opacity(0.3))
@@ -75,8 +74,9 @@ struct AddListView: View {
                         Button("Done"){       
                             let name = listItem.name
                             let color = colorString(color: listItem.color)
-                            
-                            context.insert(MyListViewModel(name: name, color: color))
+                            let list = MyListViewModel(name: name, color: color)
+                            context.insert(list)
+                            list.reminders = []
                             isPresented = false
                         }
                     }
