@@ -11,7 +11,7 @@ struct NewReminderView: View {
     @Environment(\.modelContext) var context
     
     @State var reminderData:ReminderData
-    @State var selectedList: MyListViewModel?
+    @State var selectedList: MyListViewModel = MyListViewModel(name: "", color: "")
     
     @Binding var isPresented:Bool
     
@@ -29,15 +29,11 @@ struct NewReminderView: View {
 
                     ToolbarItem(placement: .confirmationAction, content: {
                         Button("Done"){
-                            let date = getDate(date: reminderData.details.date )
-                            print(date)
-                            let time = getTime(date: reminderData.details.time )
-                            print(time)
-                            let detailModel = Details(date: date, time: time, priority: reminderData.details.priority, repeatType: reminderData.details.repeatType)
+                            let detailModel = Details(priority: reminderData.details.priority, repeatType: reminderData.details.repeatType,reminderDate: reminderData.details.date, reminderTime: reminderData.details.time)
                             let model = ReminderModelData(id: UUID(), title: reminderData.title, notes: reminderData.notes, details: detailModel)
                             context.insert(model)
                             model.list = selectedList
-                            selectedList?.reminders?.append(model)
+                            selectedList.reminders?.append(model)
                             isPresented = false
                         }
                     })
@@ -45,26 +41,11 @@ struct NewReminderView: View {
         }
         
     }
-    func getDate(date:Date) -> String{
-        let formatter = DateFormatter()
-        formatter.timeStyle = .none
-        formatter.dateStyle = .full
-        formatter.timeZone = TimeZone.current
-        let result = formatter.string(from: Date())
-        return result
-    }
-    func getTime(date:Date) -> String{
-        let dateFormatter = DateFormatter()
-         
-        dateFormatter.dateFormat = "HH:mm:ss"
-         
-        let result = dateFormatter.string(from: date)
-        return result
-    }
+  
 }
 struct ReminderInputs:View {
     @Binding var reminderData:ReminderData
-    @Binding var selectedList:MyListViewModel?
+    @Binding var selectedList:MyListViewModel
     
     var body: some View {
         List{
@@ -92,6 +73,10 @@ struct ReminderInputs:View {
         }
     }
 }
+
+
+
+
 //#Preview {
 //    NewReminderView(isPresented: .constant(true))
 //}

@@ -9,7 +9,8 @@ import SwiftUI
 
 
 struct EditListView: View {
-    @State var listItem:MyListModel = MyListModel.emptyModel
+    
+    @State var listItem:MyListViewModel
     @Binding var isPresented: Bool
 
     var items: [GridItem] {
@@ -17,6 +18,7 @@ struct EditListView: View {
     }
     
     var body: some View {
+        var listcolor = stringToColor(color: listItem.color)
         NavigationStack{
             List{
                 Section(header: Text("")){
@@ -24,7 +26,7 @@ struct EditListView: View {
                         Image(systemName: "list.bullet.circle.fill")
                             .resizable()
                             .frame(width: 80,height: 80)
-                            .foregroundColor(listItem.color)
+                            .foregroundColor(listcolor)
                         
                         HStack{
                             TextField("List Name",text: $listItem.name)
@@ -51,10 +53,11 @@ struct EditListView: View {
                                     .frame(width:30,height: 30)
                                     .foregroundColor(color)
                                     .padding(2)
-                                    .overlay(listItem.color == color ? RoundedRectangle(cornerRadius: 50)
+                                    .overlay( listcolor == color ? RoundedRectangle(cornerRadius: 50)
                                         .stroke(.gray.opacity(0.7), lineWidth: 2): nil)
                                     .onTapGesture {
-                                        listItem.color = color
+                                        listcolor = color
+                                        listItem.color = colorString(color: color)
                                     }
                             }
                         }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct DetailsFieldView: View {
 //    enum priority : String, CaseIterable { // 1
 //           case none
@@ -17,7 +18,6 @@ struct DetailsFieldView: View {
        
 //    @State var selectedItem = priority.none// 2
     
-    var priority:[String] = ["none","low","medium","high"]
     @State var date = Date.now
     @State var currentDate = Date.now
     
@@ -60,14 +60,15 @@ struct DetailsFieldView: View {
                         Toggle("", isOn: .constant(true))
                     }
                 }
-                Section{
-                    Picker("Priority", selection: $detailData.priority) {
-                        ForEach(priority, id: \.self) { item in
-                            Text(item)
-                        }
-                    }
-
-                }
+                PrioritySection(priority: $detailData.priority )
+//                Section{
+//                    Picker("Priority", selection: $detailData.priority) {
+//                        ForEach(priority, id: \.self) { item in
+//                            Text(item)
+//                        }
+//                    }
+//
+//                }
                
             }
             .listStyle(.insetGrouped)
@@ -83,6 +84,23 @@ struct DetailsFieldView: View {
     }
 }
 
+
+struct PrioritySection:View {
+    let priorities:[String] = ["none","low","medium","high"]
+
+    @Binding var priority:String
+    
+    var body: some View {
+        Section{
+            Picker("Priority", selection: $priority) {
+                ForEach(priorities, id: \.self) { item in
+                    Text(item)
+                }
+            }
+
+        }
+    }
+}
 //#Preview {
 //    DetailsFieldView(, detailData: <#Binding<DetailsModel>#>)
 //}

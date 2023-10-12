@@ -10,7 +10,7 @@ import SwiftData
 
 struct ListFieldView: View {
     @Query var items:[MyListViewModel]
-    @Binding var listData: MyListViewModel?
+    @Binding var listData: MyListViewModel
     
     var body: some View {
         List{
@@ -18,28 +18,13 @@ struct ListFieldView: View {
                 Picker("",selection: $listData){
                     ForEach(items){ item in
                         Text("\(item.name)")
-                            .tag(item as MyListViewModel?)
+                            .tag(item as MyListViewModel)
                     }
                 }
                 .labelsHidden()
                 .pickerStyle(.inline)
             }
         }
-//            List{
-//                ForEach(items,id: \.self){ item in
-//                    HStack{
-//                        Text(item.name)
-//                        Spacer()
-//                        if(item == listData){
-//                            Image(systemName:"checkmark")
-//                        }
-//                    }
-//                    .onTapGesture {
-//                        print("list",item)
-//                        listData = item
-//                    }
-//                }
-//            }
     }
 }
 

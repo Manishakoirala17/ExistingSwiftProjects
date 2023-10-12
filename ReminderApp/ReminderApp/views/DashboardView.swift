@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DashboardView: View {
     @State var cardItems = CardViewModel()
@@ -13,6 +14,9 @@ struct DashboardView: View {
     @State var search:String = ""
     @State var newReminderPresented:Bool = false
     @State private var goToNewView: Bool = false
+    
+    @Query private var myLists:[MyListViewModel]
+
 
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
 
@@ -56,7 +60,7 @@ struct DashboardView: View {
                             .listRowBackground(Color.gray.opacity(0.0))
                             .listRowSeparator(.hidden)
                             .padding(6)
-                        MyListsView()
+                    MyListsView(editListItem: MyListViewModel(name: "" , color: ""), myLists:myLists)
                     
                 }
                 .listStyle(.insetGrouped)

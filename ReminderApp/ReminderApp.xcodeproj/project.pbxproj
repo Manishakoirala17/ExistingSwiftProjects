@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1303AC052AD6F1290095CFBD /* DetailFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303AC042AD6F1290095CFBD /* DetailFormView.swift */; };
 		137F71592AC87FBB00DCF47C /* ReminderAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F71582AC87FBB00DCF47C /* ReminderAppApp.swift */; };
 		137F715B2AC87FBB00DCF47C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F715A2AC87FBB00DCF47C /* ContentView.swift */; };
 		137F715D2AC87FBF00DCF47C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137F715C2AC87FBF00DCF47C /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1303AC042AD6F1290095CFBD /* DetailFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFormView.swift; sourceTree = "<group>"; };
 		137F71552AC87FBB00DCF47C /* ReminderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137F71582AC87FBB00DCF47C /* ReminderAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderAppApp.swift; sourceTree = "<group>"; };
 		137F715A2AC87FBB00DCF47C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				2F40EEC82ACFD8070058E450 /* EditDashboardView.swift */,
 				2F40EECA2AD2FD560058E450 /* ListRowDetailView.swift */,
 				13F388A12AD422ED00302066 /* ReminderList.swift */,
+				1303AC042AD6F1290095CFBD /* DetailFormView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				137F715B2AC87FBB00DCF47C /* ContentView.swift in Sources */,
 				137F71682AC8811500DCF47C /* DashboardView.swift in Sources */,
 				137F71592AC87FBB00DCF47C /* ReminderAppApp.swift in Sources */,
+				1303AC052AD6F1290095CFBD /* DetailFormView.swift in Sources */,
 				2F40EEC72ACFC9300058E450 /* ListFieldView.swift in Sources */,
 				13F3889E2AD40A6000302066 /* ReminderModelData.swift in Sources */,
 				137F716C2AC8813C00DCF47C /* CardView.swift in Sources */,

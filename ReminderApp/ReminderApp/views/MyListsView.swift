@@ -9,14 +9,16 @@ import SwiftUI
 import SwiftData
 
 struct MyListsView: View {
-    
-    @Query private var myLists:[MyListViewModel]
     @Environment(\.modelContext) var context
-    @State var isPresented:Bool = false
-    @State var item:MyListModel = MyListModel.emptyModel
     
+    @State var isPresented:Bool = false
+    @State var editListItem:MyListViewModel
+    
+    var myLists:[MyListViewModel]
+     
     var body: some View {
             ForEach(myLists,id: \.self){ list in
+                
                 NavigationLink(destination: ListRowDetailView(list:list)){
                     ListRow(list: list)
                 }
@@ -30,7 +32,7 @@ struct MyListsView: View {
                     }
                     .swipeActions{
                         Button {
-                            item = MyListModel(name: list.name, color: stringToColor(color: list.color))
+                            editListItem = list
                             isPresented = true
                         } label: {
                             Label("edit", systemImage: "info.circle.fill")
@@ -40,7 +42,7 @@ struct MyListsView: View {
 
              }
             .sheet(isPresented:$isPresented){
-                EditListView(listItem: item,isPresented:$isPresented)
+                EditListView(listItem: editListItem ,isPresented:$isPresented)
             }
     }
 }
@@ -57,5 +59,5 @@ struct ListRow:View {
     }
 }
 #Preview {
-    MyListsView()
+    MyListsView(editListItem: MyListViewModel(name: "", color: ""), myLists: [])
 }
