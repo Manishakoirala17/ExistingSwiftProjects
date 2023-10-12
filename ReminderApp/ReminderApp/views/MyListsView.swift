@@ -53,7 +53,7 @@ struct ListRow:View {
                 Image(systemName: "list.bullet.circle.fill")
                     .resizable()
                     .frame(width:30,height: 30)
-                    .foregroundColor(stringToColor(color: list.color))
+                    .foregroundColor(CardViewModel[list.color])
             Text(list.name)
         }
     }

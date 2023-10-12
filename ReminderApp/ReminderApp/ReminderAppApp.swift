@@ -14,6 +14,6 @@ struct ReminderAppApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [MyListViewModel.self,ReminderModelData.self])
+        .modelContainer(for: [MyListViewModel.self,ReminderModelData.self,CardViewModel.self])
     }
 }

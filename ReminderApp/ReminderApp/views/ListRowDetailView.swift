@@ -25,8 +25,8 @@ struct ListRowDetailView: View {
 
     var color: Color = .orange
     var body: some View {
-        let color = stringToColor(color: list.color)
-        NavigationStack{
+        let color = CardViewModel[list.color]
+        NavigationView{
             VStack(alignment: .leading,spacing: 0){
                 Text("\(list.name)")
                     .font(.largeTitle)
@@ -93,9 +93,18 @@ struct reminderRow:View {
     var selectedList:MyListViewModel
 
     var body: some View {
-
-        VStack(alignment:.leading){
-            HStack{
+        VStack(alignment:.leading,spacing: 0){
+            HStack(spacing:10){
+                Button(action:{
+                    reminder.isCompleted = !reminder.isCompleted
+                }){
+                    if(reminder.isCompleted){
+                        Image(systemName: "checkmark.circle.fill")
+                    }
+                    else{
+                        Image(systemName: "circle")
+                    }
+                }
                 HStack(spacing:0){
                     ForEach(0..<getCount(value: reminder.details.priority),id: \.self){ _ in
                         Image(systemName: "exclamationmark")

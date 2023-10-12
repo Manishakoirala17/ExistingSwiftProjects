@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		1303AC052AD6F1290095CFBD /* DetailFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1303AC042AD6F1290095CFBD /* DetailFormView.swift */; };
+		133FCDBE2AD7EF7F00085125 /* TodayReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133FCDBD2AD7EF7F00085125 /* TodayReminders.swift */; };
+		133FCDC62AD807DB00085125 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 133FCDC52AD807DB00085125 /* WidgetKit.framework */; };
+		133FCDC82AD807DB00085125 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 133FCDC72AD807DB00085125 /* SwiftUI.framework */; };
+		133FCDCB2AD807DB00085125 /* ReminderWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133FCDCA2AD807DB00085125 /* ReminderWidgetBundle.swift */; };
+		133FCDCD2AD807DB00085125 /* ReminderWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133FCDCC2AD807DB00085125 /* ReminderWidget.swift */; };
+		133FCDCF2AD807DB00085125 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133FCDCE2AD807DB00085125 /* AppIntent.swift */; };
+		133FCDD12AD807DD00085125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 133FCDD02AD807DD00085125 /* Assets.xcassets */; };
+		133FCDD52AD807DD00085125 /* ReminderWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 133FCDC32AD807DB00085125 /* ReminderWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		133FCDDA2AD8090C00085125 /* ReminderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F3889F2AD417C300302066 /* ReminderData.swift */; };
+		133FCDDB2AD8091000085125 /* MyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F71722ACA9E3100DCF47C /* MyListModel.swift */; };
+		133FCDDD2AD80C1800085125 /* CardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F716E2AC8891500DCF47C /* CardDataModel.swift */; };
+		133FCDDE2AD80C1D00085125 /* MyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F71762ACA9F9000DCF47C /* MyListViewModel.swift */; };
+		133FCDDF2AD80C2000085125 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40EECC2AD304FB0058E450 /* CardViewModel.swift */; };
+		133FCDE02AD80C2300085125 /* ReminderModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F3889D2AD40A6000302066 /* ReminderModelData.swift */; };
+		133FCDE22AD82DD900085125 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133FCDE12AD82DD900085125 /* CardDetailView.swift */; };
 		137F71592AC87FBB00DCF47C /* ReminderAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F71582AC87FBB00DCF47C /* ReminderAppApp.swift */; };
 		137F715B2AC87FBB00DCF47C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F715A2AC87FBB00DCF47C /* ContentView.swift */; };
 		137F715D2AC87FBF00DCF47C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137F715C2AC87FBF00DCF47C /* Assets.xcassets */; };
@@ -32,8 +47,42 @@
 		2F40EECD2AD304FB0058E450 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40EECC2AD304FB0058E450 /* CardViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		133FCDD32AD807DD00085125 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 137F714D2AC87FBB00DCF47C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 133FCDC22AD807DB00085125;
+			remoteInfo = ReminderWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		133FCDD92AD807DD00085125 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				133FCDD52AD807DD00085125 /* ReminderWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1303AC042AD6F1290095CFBD /* DetailFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFormView.swift; sourceTree = "<group>"; };
+		133FCDBD2AD7EF7F00085125 /* TodayReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayReminders.swift; sourceTree = "<group>"; };
+		133FCDC32AD807DB00085125 /* ReminderWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ReminderWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		133FCDC52AD807DB00085125 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		133FCDC72AD807DB00085125 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		133FCDCA2AD807DB00085125 /* ReminderWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderWidgetBundle.swift; sourceTree = "<group>"; };
+		133FCDCC2AD807DB00085125 /* ReminderWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderWidget.swift; sourceTree = "<group>"; };
+		133FCDCE2AD807DB00085125 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		133FCDD02AD807DD00085125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		133FCDD22AD807DD00085125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		133FCDE12AD82DD900085125 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		137F71552AC87FBB00DCF47C /* ReminderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137F71582AC87FBB00DCF47C /* ReminderAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderAppApp.swift; sourceTree = "<group>"; };
 		137F715A2AC87FBB00DCF47C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +109,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		133FCDC02AD807DB00085125 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				133FCDC82AD807DB00085125 /* SwiftUI.framework in Frameworks */,
+				133FCDC62AD807DB00085125 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		137F71522AC87FBB00DCF47C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -70,10 +128,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		133FCDC42AD807DB00085125 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				133FCDC52AD807DB00085125 /* WidgetKit.framework */,
+				133FCDC72AD807DB00085125 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		133FCDC92AD807DB00085125 /* ReminderWidget */ = {
+			isa = PBXGroup;
+			children = (
+				133FCDCA2AD807DB00085125 /* ReminderWidgetBundle.swift */,
+				133FCDCC2AD807DB00085125 /* ReminderWidget.swift */,
+				133FCDCE2AD807DB00085125 /* AppIntent.swift */,
+				133FCDD02AD807DD00085125 /* Assets.xcassets */,
+				133FCDD22AD807DD00085125 /* Info.plist */,
+			);
+			path = ReminderWidget;
+			sourceTree = "<group>";
+		};
 		137F714C2AC87FBB00DCF47C = {
 			isa = PBXGroup;
 			children = (
 				137F71572AC87FBB00DCF47C /* ReminderApp */,
+				133FCDC92AD807DB00085125 /* ReminderWidget */,
+				133FCDC42AD807DB00085125 /* Frameworks */,
 				137F71562AC87FBB00DCF47C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				137F71552AC87FBB00DCF47C /* ReminderApp.app */,
+				133FCDC32AD807DB00085125 /* ReminderWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +206,8 @@
 				2F40EECA2AD2FD560058E450 /* ListRowDetailView.swift */,
 				13F388A12AD422ED00302066 /* ReminderList.swift */,
 				1303AC042AD6F1290095CFBD /* DetailFormView.swift */,
+				133FCDBD2AD7EF7F00085125 /* TodayReminders.swift */,
+				133FCDE12AD82DD900085125 /* CardDetailView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -151,6 +235,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		133FCDC22AD807DB00085125 /* ReminderWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 133FCDD62AD807DD00085125 /* Build configuration list for PBXNativeTarget "ReminderWidgetExtension" */;
+			buildPhases = (
+				133FCDBF2AD807DB00085125 /* Sources */,
+				133FCDC02AD807DB00085125 /* Frameworks */,
+				133FCDC12AD807DB00085125 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReminderWidgetExtension;
+			productName = ReminderWidgetExtension;
+			productReference = 133FCDC32AD807DB00085125 /* ReminderWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		137F71542AC87FBB00DCF47C /* ReminderApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 137F71632AC87FBF00DCF47C /* Build configuration list for PBXNativeTarget "ReminderApp" */;
@@ -158,10 +259,12 @@
 				137F71512AC87FBB00DCF47C /* Sources */,
 				137F71522AC87FBB00DCF47C /* Frameworks */,
 				137F71532AC87FBB00DCF47C /* Resources */,
+				133FCDD92AD807DD00085125 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				133FCDD42AD807DD00085125 /* PBXTargetDependency */,
 			);
 			name = ReminderApp;
 			productName = ReminderApp;
@@ -178,6 +281,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					133FCDC22AD807DB00085125 = {
+						CreatedOnToolsVersion = 15.0;
+					};
 					137F71542AC87FBB00DCF47C = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -197,11 +303,20 @@
 			projectRoot = "";
 			targets = (
 				137F71542AC87FBB00DCF47C /* ReminderApp */,
+				133FCDC22AD807DB00085125 /* ReminderWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		133FCDC12AD807DB00085125 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				133FCDD12AD807DD00085125 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		137F71532AC87FBB00DCF47C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,6 +329,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		133FCDBF2AD807DB00085125 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				133FCDCB2AD807DB00085125 /* ReminderWidgetBundle.swift in Sources */,
+				133FCDDD2AD80C1800085125 /* CardDataModel.swift in Sources */,
+				133FCDDE2AD80C1D00085125 /* MyListViewModel.swift in Sources */,
+				133FCDDB2AD8091000085125 /* MyListModel.swift in Sources */,
+				133FCDDF2AD80C2000085125 /* CardViewModel.swift in Sources */,
+				133FCDDA2AD8090C00085125 /* ReminderData.swift in Sources */,
+				133FCDE02AD80C2300085125 /* ReminderModelData.swift in Sources */,
+				133FCDCD2AD807DB00085125 /* ReminderWidget.swift in Sources */,
+				133FCDCF2AD807DB00085125 /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		137F71512AC87FBB00DCF47C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +359,7 @@
 				138D0D562ACD14B800A911D0 /* DetailsFieldView.swift in Sources */,
 				137F717D2ACBE41400DCF47C /* NewReminderView.swift in Sources */,
 				13F388A02AD417C300302066 /* ReminderData.swift in Sources */,
+				133FCDE22AD82DD900085125 /* CardDetailView.swift in Sources */,
 				137F716F2AC8891500DCF47C /* CardDataModel.swift in Sources */,
 				137F71792ACAA23300DCF47C /* AddListView.swift in Sources */,
 				137F717B2ACBE18D00DCF47C /* EditListView.swift in Sources */,
@@ -235,6 +367,7 @@
 				137F71682AC8811500DCF47C /* DashboardView.swift in Sources */,
 				137F71592AC87FBB00DCF47C /* ReminderAppApp.swift in Sources */,
 				1303AC052AD6F1290095CFBD /* DetailFormView.swift in Sources */,
+				133FCDBE2AD7EF7F00085125 /* TodayReminders.swift in Sources */,
 				2F40EEC72ACFC9300058E450 /* ListFieldView.swift in Sources */,
 				13F3889E2AD40A6000302066 /* ReminderModelData.swift in Sources */,
 				137F716C2AC8813C00DCF47C /* CardView.swift in Sources */,
@@ -244,7 +377,67 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		133FCDD42AD807DD00085125 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 133FCDC22AD807DB00085125 /* ReminderWidgetExtension */;
+			targetProxy = 133FCDD32AD807DD00085125 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		133FCDD72AD807DD00085125 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReminderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ReminderWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = manisha.ReminderApp.ReminderWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		133FCDD82AD807DD00085125 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReminderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ReminderWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = manisha.ReminderApp.ReminderWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		137F71612AC87FBF00DCF47C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -367,6 +560,7 @@
 		137F71642AC87FBF00DCF47C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -395,6 +589,7 @@
 		137F71652AC87FBF00DCF47C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -423,6 +618,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		133FCDD62AD807DD00085125 /* Build configuration list for PBXNativeTarget "ReminderWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				133FCDD72AD807DD00085125 /* Debug */,
+				133FCDD82AD807DD00085125 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		137F71502AC87FBB00DCF47C /* Build configuration list for PBXProject "ReminderApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

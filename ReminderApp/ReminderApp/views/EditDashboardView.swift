@@ -11,10 +11,12 @@ import SwiftData
 struct EditDashboardView: View {
     @Environment(\.presentationMode) var presentationMode
 
-    @ObservedObject var cardItems = CardViewModel()
-    @Query var listItems:[MyListViewModel]
     @State var search = ""
     @State var isAddListPresented:Bool = false
+    
+    @Query private var cardItems:[CardViewModel]
+    @Query var listItems:[MyListViewModel]
+
     var body: some View {
         NavigationView{
             VStack{
@@ -25,7 +27,7 @@ struct EditDashboardView: View {
                         .listRowSeparator(.hidden)
                     
                     Section{
-                        ForEach(cardItems.cards,id: \.self) { item in
+                        ForEach(cardItems,id: \.self) { item in
                            CardRow(item: item)
                         }
                     }
@@ -77,7 +79,7 @@ struct MyListRow:View {
             Image(systemName: "list.bullet.circle.fill")
                 .resizable()
                 .frame(width: 20,height: 20)
-                .foregroundColor(stringToColor(color: item.color))
+                .foregroundColor(CardViewModel[item.color])
             Text(item.name)
             Spacer()
             Image(systemName: "info.circle")
@@ -91,11 +93,11 @@ struct MyListRow:View {
 }
 
 struct CardRow:View {
-    var item:CardDataModel
+    var item:CardViewModel
     var body: some View {
         HStack{
             Button(action:{
-                print("")
+                item.isSelected = !item.isSelected
             }){
                 if(item.isSelected){
                     Image(systemName: "checkmark.circle.fill")
@@ -110,7 +112,7 @@ struct CardRow:View {
             Image(systemName: item.imageName)
                 .resizable()
                 .frame(width: 30,height: 30)
-                .foregroundColor(item.color)
+                .foregroundColor(CardViewModel[item.color])
             Text(item.title)
             Spacer()
             Image(systemName: "line.horizontal.3")

@@ -18,7 +18,7 @@ struct EditListView: View {
     }
     
     var body: some View {
-        var listcolor = stringToColor(color: listItem.color)
+        var listcolor = CardViewModel[listItem.color]
         NavigationStack{
             List{
                 Section(header: Text("")){
@@ -57,7 +57,7 @@ struct EditListView: View {
                                         .stroke(.gray.opacity(0.7), lineWidth: 2): nil)
                                     .onTapGesture {
                                         listcolor = color
-                                        listItem.color = colorString(color: color)
+                                        listItem.color = CardViewModel[color]
                                     }
                             }
                         }

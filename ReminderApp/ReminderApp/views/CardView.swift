@@ -11,18 +11,19 @@ struct CardView: View {
     var count:Int
     var title:String
     var imageName: String
-    var imageColor:Color
+    var imageColor:String
     
     var body: some View {
+        let color = CardViewModel[imageColor]
         HStack{
-            VStack{
+            VStack(alignment:.leading){
                 Image(systemName: imageName)
                  .resizable()
                  .frame(width: 40,height: 40)
-                 .foregroundColor(imageColor)
+                 .foregroundColor(color)
                  Text(title)
                   .font(.subheadline)
-                    .foregroundColor(.gray)
+                  .foregroundColor(.black)
             }
             Spacer()
              Text("\(count)")
@@ -37,5 +38,5 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(count: 0, title: "Today", imageName: "plus", imageColor: .red)
+    CardView(count: 0, title: "Today", imageName: "plus", imageColor: "red")
 }

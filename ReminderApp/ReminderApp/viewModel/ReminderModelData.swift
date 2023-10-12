@@ -14,14 +14,15 @@ class ReminderModelData {
     var title:String
     var notes:String
     var details:Details
-    
+    var isCompleted:Bool
     var list:MyListViewModel?
    
-    init(id: UUID, title: String, notes: String,details:Details) {
+    init(id: UUID, title: String, notes: String,details:Details,isCompleted:Bool = false) {
         self.id = id
         self.title = title
         self.notes = notes
         self.details = details
+        self.isCompleted = isCompleted
     }
 }
 
@@ -35,8 +36,8 @@ class Details{
     var reminderTime:Date = Date()
     
     init(priority: String, repeatType: String,reminderDate:Date, reminderTime:Date) {
-        self.date = Details.formateDate.string(from: reminderDate)
-        self.time = Details.formateTime.string(from: reminderTime)
+        self.date = ReminderModelData.formateDate.string(from: reminderDate)
+        self.time = ReminderModelData.formateTime.string(from: reminderTime)
         self.priority = priority
         self.repeatType = repeatType
         self.reminderDate = reminderDate
@@ -45,7 +46,7 @@ class Details{
     }
 }
 
-extension Details {
+extension ReminderModelData {
     static var formate: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
@@ -63,4 +64,12 @@ extension Details {
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }
+    static func currentPredicate() -> Predicate<ReminderModelData> {
+        let currentDate = Date.now
+
+        return #Predicate<ReminderModelData> { reminder in
+            reminder.details.reminderDate < currentDate
+        }
+    }
+
 }

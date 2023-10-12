@@ -73,7 +73,7 @@ struct AddListView: View {
                     ToolbarItem(placement:.navigationBarTrailing){
                         Button("Done"){       
                             let name = listItem.name
-                            let color = colorString(color: listItem.color)
+                            let color = CardViewModel[listItem.color]
                             let list = MyListViewModel(name: name, color: color)
                             context.insert(list)
                             list.reminders = []
@@ -90,48 +90,6 @@ struct AddListView: View {
         return [Color.red,Color.orange,Color.yellow,Color.green,Color.blue,Color.purple,Color.brown]
     }
     
-}
-func colorString(color:Color) -> String{
-    switch(color){
-    case .red:
-        return "red"
-    case .orange:
-        return "orange"
-    case .yellow:
-        return "yellow"
-    case .green:
-        return "green"
-    case .blue:
-        return "blue"
-    case .purple:
-        return "purple"
-    case .brown:
-        return "brown"
-    default:
-        return "blue"
-        
-    }
-}
-func stringToColor(color:String) -> Color{
-    switch(color){
-    case "red":
-        return .red
-    case "orange":
-        return .orange
-    case "yellow":
-        return .yellow
-    case "green":
-        return .green
-    case "blue":
-        return .blue
-    case "purple":
-        return .purple
-    case "brown":
-        return .brown
-    default:
-        return .blue
-        
-    }
 }
 
 //#Preview {
