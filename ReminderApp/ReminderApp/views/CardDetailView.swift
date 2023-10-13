@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct CardDetailView: View {
-    @State var selectedItem:CardViewModel = CardViewModel(title: "", imageName: "", color: "", isSelected: false)
+    @Binding var selectedItem:CardViewModel
 
     var body: some View {
-        Text("\(selectedItem.title)")
-//        switch(selectedItem){
-//        case "Today":
-//            TodayReminders()
-//        default:
-//            ReminderList()
-//        }
-    }
-}
+        let title = selectedItem.title
+        VStack{
+            switch(title){
+            case "Today":
+                TodayReminders()
+            case "Completed":
+                CompletedReminders()
+            case "Scheduled":
+                ScheduledReminders()
+            default:
+                ReminderList()
+            }
 
-#Preview {
-    CardDetailView()
+        }
+    }
 }

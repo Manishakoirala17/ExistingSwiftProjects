@@ -24,9 +24,10 @@ struct DashboardView: View {
     @State var newReminderPresented:Bool = false
     @State var goToNewView: Bool = false
     @State var count:Int = 0
+    @State var selectedCardItem:CardViewModel = CardViewModel(title: "", imageName: "", color: "", isSelected: false)
     
     @Query private var myLists:[MyListViewModel]
-    @Query private var cardItems:[CardViewModel]
+    @Query(filter: #Predicate<CardViewModel>{$0.isSelected == true}) var cardItems:[CardViewModel]
 
     @Environment(\.modelContext) var context
     
@@ -43,18 +44,26 @@ struct DashboardView: View {
                 
                         LazyVGrid(columns: columns) {
                             ForEach(cardItems, id: \.self) { item in
-                                if (item.isSelected){
-                                    CardView(count: count, title: item.title, imageName: item.imageName, imageColor: item.color)
-                                        .background(
-                                            NavigationLink(destination: CardDetailView(selectedItem:item), isActive: $goToNewView, label: {
-                                                EmptyView()
-                                            })
-                                        )
+                                        CardView(count: count, title: item.title, imageName: item.imageName, imageColor: item.color)
+                                    .onTapGesture {
+                                        selectedCardItem = item // Set the selected item when tapped
+                                        goToNewView = true // Trigger the navigation
+                                    }
 
-                                }
-                               
-                            }
+//                                            .background(
+//                                                NavigationLink(destination: CardDetailView(selectedItem:item), isActive: $goToNewView, label: {
+//                                                    EmptyView()
+//                                                })
+//                                            )
+                                    
+                                  }
                         }
+                        .background(
+                            NavigationLink(destination: CardDetailView(selectedItem:$selectedCardItem), isActive: $goToNewView, label: {
+                                EmptyView()
+                            })
+                            .opacity(0)
+                        )
                         .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                         .listRowBackground(Color.gray.opacity(0.0))
                         .listRowSeparator(.hidden)

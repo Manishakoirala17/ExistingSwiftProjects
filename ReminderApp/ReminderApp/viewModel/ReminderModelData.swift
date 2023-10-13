@@ -32,8 +32,8 @@ class Details{
     var time:String = ""
     var priority:String
     var repeatType:String
-    var reminderDate:Date = Date()
-    var reminderTime:Date = Date()
+    var reminderDate:Date
+    var reminderTime:Date
     
     init(priority: String, repeatType: String,reminderDate:Date, reminderTime:Date) {
         self.date = ReminderModelData.formateDate.string(from: reminderDate)
@@ -71,5 +71,16 @@ extension ReminderModelData {
             reminder.details.reminderDate < currentDate
         }
     }
+    static func completedPredicate() -> Predicate<ReminderModelData> {
 
+        return #Predicate<ReminderModelData> { reminder in
+            reminder.isCompleted == true
+        }
+    }
+//    static func scheduledPredicates() -> Predicate<ReminderModelData> {
+//
+//        return #Predicate<ReminderModelData> { reminder in
+//            reminder.details.reminderDate != nil
+//        }
+//    }
 }

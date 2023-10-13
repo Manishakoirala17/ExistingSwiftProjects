@@ -23,6 +23,8 @@
 		133FCDDF2AD80C2000085125 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40EECC2AD304FB0058E450 /* CardViewModel.swift */; };
 		133FCDE02AD80C2300085125 /* ReminderModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F3889D2AD40A6000302066 /* ReminderModelData.swift */; };
 		133FCDE22AD82DD900085125 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133FCDE12AD82DD900085125 /* CardDetailView.swift */; };
+		133FCDE52AD94F6900085125 /* CompletedReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133FCDE42AD94F6900085125 /* CompletedReminders.swift */; };
+		133FCDE72AD9554800085125 /* ScheduledReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133FCDE62AD9554800085125 /* ScheduledReminders.swift */; };
 		137F71592AC87FBB00DCF47C /* ReminderAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F71582AC87FBB00DCF47C /* ReminderAppApp.swift */; };
 		137F715B2AC87FBB00DCF47C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137F715A2AC87FBB00DCF47C /* ContentView.swift */; };
 		137F715D2AC87FBF00DCF47C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137F715C2AC87FBF00DCF47C /* Assets.xcassets */; };
@@ -83,6 +85,8 @@
 		133FCDD02AD807DD00085125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		133FCDD22AD807DD00085125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		133FCDE12AD82DD900085125 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		133FCDE42AD94F6900085125 /* CompletedReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedReminders.swift; sourceTree = "<group>"; };
+		133FCDE62AD9554800085125 /* ScheduledReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledReminders.swift; sourceTree = "<group>"; };
 		137F71552AC87FBB00DCF47C /* ReminderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137F71582AC87FBB00DCF47C /* ReminderAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderAppApp.swift; sourceTree = "<group>"; };
 		137F715A2AC87FBB00DCF47C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +153,17 @@
 			path = ReminderWidget;
 			sourceTree = "<group>";
 		};
+		133FCDE32AD94E9100085125 /* FilterReminderList */ = {
+			isa = PBXGroup;
+			children = (
+				13F388A12AD422ED00302066 /* ReminderList.swift */,
+				133FCDBD2AD7EF7F00085125 /* TodayReminders.swift */,
+				133FCDE42AD94F6900085125 /* CompletedReminders.swift */,
+				133FCDE62AD9554800085125 /* ScheduledReminders.swift */,
+			);
+			path = FilterReminderList;
+			sourceTree = "<group>";
+		};
 		137F714C2AC87FBB00DCF47C = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +208,7 @@
 		137F71662AC87FD100DCF47C /* views */ = {
 			isa = PBXGroup;
 			children = (
+				133FCDE32AD94E9100085125 /* FilterReminderList */,
 				137F71672AC8811500DCF47C /* DashboardView.swift */,
 				137F71692AC8813000DCF47C /* MyListsView.swift */,
 				137F716B2AC8813C00DCF47C /* CardView.swift */,
@@ -204,9 +220,7 @@
 				2F40EEC62ACFC9300058E450 /* ListFieldView.swift */,
 				2F40EEC82ACFD8070058E450 /* EditDashboardView.swift */,
 				2F40EECA2AD2FD560058E450 /* ListRowDetailView.swift */,
-				13F388A12AD422ED00302066 /* ReminderList.swift */,
 				1303AC042AD6F1290095CFBD /* DetailFormView.swift */,
-				133FCDBD2AD7EF7F00085125 /* TodayReminders.swift */,
 				133FCDE12AD82DD900085125 /* CardDetailView.swift */,
 			);
 			path = views;
@@ -350,9 +364,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				137F71772ACA9F9000DCF47C /* MyListViewModel.swift in Sources */,
+				133FCDE52AD94F6900085125 /* CompletedReminders.swift in Sources */,
 				137F71712ACA86EC00DCF47C /* SearchBar.swift in Sources */,
 				2F40EEC92ACFD8070058E450 /* EditDashboardView.swift in Sources */,
 				13F388A22AD422ED00302066 /* ReminderList.swift in Sources */,
+				133FCDE72AD9554800085125 /* ScheduledReminders.swift in Sources */,
 				137F716A2AC8813000DCF47C /* MyListsView.swift in Sources */,
 				2F40EECD2AD304FB0058E450 /* CardViewModel.swift in Sources */,
 				2F40EECB2AD2FD560058E450 /* ListRowDetailView.swift in Sources */,
